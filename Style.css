@@ -1,0 +1,148 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    background-color: black;
+}
+
+ /* Card */
+.Card{
+    position: relative;
+    width: 600px;
+    height: 350px;
+
+    border-radius: 25px;
+
+    display:flex;
+    align-items: center;
+
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.Card:hover .Circle:before{
+    clip-path: circle(500px at center);
+
+    background-color: rgb(53, 53, 53);
+}
+
+.Card:hover img{
+    left: 100%;
+    height: 350px;
+}
+
+.Card:hover .Content{
+    opacity: 1;
+    left: 0%;
+    visibility: visible;
+}
+
+/* Circle */
+.Circle{
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+
+.Circle::before{
+    content: "";
+
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+
+    background-color: rgb(219, 219, 219);
+
+    clip-path: circle(120px at center);
+    transition: 0.5s;
+}
+
+
+ /* Content */
+.Content{
+    position: relative;
+    width: 50%;
+    padding: 50px;
+    left: 50%;
+    transition: 0.5s;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.Text{
+    color: rgb(255, 255, 255);
+    margin-bottom: 50px;
+}
+
+h1{
+    color: rgb(239, 120, 0);
+}
+
+p{
+   font-size: 20px;
+}
+
+ /* Button */
+button{
+    background-color: rgb(53, 53, 53);
+    color: rgb(255, 184, 87);
+
+    padding: 10px 20px;
+
+    border-radius: 5px;
+    border: 3px solid rgb(239, 120, 0);
+
+    font-size: 25px;
+    font-weight: bold;
+    
+    transition: 0.2s;
+}
+
+button:hover{
+    background-color: rgb(255, 184, 87);
+    color: rgb(239, 120, 0);
+    padding: 10px 20px;
+    
+}
+
+ /* Image */
+img{
+    position: absolute;
+    
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 50%;
+    transition: 0.5s;
+}
+
+/* increasong Responsiveness */
+@media (max-width: 900px) {
+    .Card{
+        align-items: flex-start;
+    }
+
+    .Card:hover{
+        height: 90%;
+    }
+
+    .Card:hover img{
+        top: 75%;
+        left: 50%;
+    }
+
+    .Content{
+        width: 100%;
+        left: 0%;
+        top: -5%;
+    }
+
+    .Text{
+        margin-bottom: 0px;
+    }
+}
